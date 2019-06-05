@@ -1,11 +1,11 @@
-import axios from "axios";
+import axios from 'axios'
 
 const axiosInstance = axios.create({
-  baseURL: "/api",
+  baseURL: '/api',
   timeout: 2000
-});
+})
 
-const baseURL = "/api";
+const baseURL = '/api'
 
 /**
  * get 请求
@@ -13,18 +13,15 @@ const baseURL = "/api";
  * @param params 请求参数
  */
 export function pget(url, params = {}) {
-  url = baseURL + url;
+  url = baseURL + url
   try {
-    return axiosInstance
-      .get(url, params)
-      .then(response => {
-        return response.data;
-      })
-      .catch(error => {
-        throw error;
-      });
+    return axiosInstance.get(url, params).then(response => {
+      return response.data
+    }).catch(error => {
+      throw error
+    })
   } catch (err) {
-    console.error(err);
+    console.error(err)
   }
 }
 
@@ -34,18 +31,15 @@ export function pget(url, params = {}) {
  * @param params 请求参数
  */
 export function ppost(url, params = {}) {
-  url = baseURL + url;
+  url = baseURL + url
   try {
-    return axios
-      .post(url, params)
-      .then(response => {
-        return response.data;
-      })
-      .catch(error => {
-        throw error;
-      });
+    return axios.post(url, params).then(response => {
+      return response.data
+    }).catch(error => {
+      throw error
+    })
   } catch (err) {
-    console.error(err);
+    console.error(err)
   }
 }
 
@@ -55,15 +49,12 @@ export function ppost(url, params = {}) {
  */
 export function asyncAll(requests = []) {
   try {
-    return axios
-      .all(requests)
-      .then(resultArr => {
-        return resultArr;
-      })
-      .catch(error => {
-        throw error;
-      });
+    return axios.all(requests).then(resultArr => {
+      return resultArr
+    }).catch(error => {
+      throw error
+    })
   } catch (err) {
-    console.error(err);
+    console.error(err)
   }
 }

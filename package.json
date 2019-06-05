@@ -6,12 +6,13 @@
     "local": "./node_modules/.bin/webpack-dev-server --config ./config/webpack.local.js",
     "prod": "./node_modules/.bin/webpack --config ./config/webpack.prod.js",
     "analyze": "./node_modules/.bin/webpack --config ./config/webpack.analyze.js",
-    "prettier": "prettier -l --write 'src/**/*.{ts,tsx,less,css}'",
-    "prettier-check": "prettier -l 'src/**/*.{ts,tsx,less,css}'",
+    "format": "prettier -l --write 'src/**/*.{ts,tsx,less,css}'",
     "tslint": "tslint \"./src/**/*.{ts,tsx}\"",
     "lint": "yarn prettier && yarn tslint"
   },
   "dependencies": {
+    "@loadable/component": "^5.10.1",
+    "antd": "^3.19.2",
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "lodash": "^4.17.11",

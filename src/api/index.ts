@@ -1,5 +1,7 @@
-const Api = {
-  // todo
-};
+import baseApi from 'api/base.api'
 
-export default Api;
+const Api = {
+  base: baseApi
+}
+
+export default Api
