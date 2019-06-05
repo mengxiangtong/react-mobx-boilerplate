@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from "react";
 
 /**
  * 添加页面 title 的注解
@@ -8,12 +8,12 @@ export default function registerTitle(title: string): any {
   return function decorate(Component: any) {
     return class RegisterTitleComponent extends React.Component<any, any> {
       componentDidMount(): void {
-        document.title = title
+        document.title = title;
       }
 
       render() {
-        return <Component {...this.props} />
+        return <Component {...this.props} />;
       }
-    }
-  }
+    };
+  };
 }

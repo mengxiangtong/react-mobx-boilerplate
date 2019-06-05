@@ -1,3 +1,3 @@
-import 'normalize.css'
+import "normalize.css";
 
-import 'babel-polyfill'
+import "babel-polyfill";

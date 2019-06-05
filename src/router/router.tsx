@@ -1,16 +1,16 @@
-import * as React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
-import wrapperComponent from 'enhancer/wrapperComponent'
-import loadable from 'enhancer/loadable'
+import * as React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+import wrapperComponent from "enhancer/wrapperComponent";
+import loadable from "enhancer/loadable";
 
-import BasicLayout from 'layout/BasicLayout/BasicLayout'
+import BasicLayout from "layout/BasicLayout/BasicLayout";
 
-const routerPrefix = ''
+const routerPrefix = "";
 export const routerOutline = {
   WelcomePage: `${routerPrefix}/welcome`
-}
+};
 
-const Welcome = loadable(() => import('router/Welcome/WelCome'))
+const Welcome = loadable(() => import("router/Welcome/WelCome"));
 
 const router = (
   <BrowserRouter>
@@ -29,6 +29,6 @@ const router = (
       />
     </div>
   </BrowserRouter>
-)
+);
 
-export default router
+export default router;
