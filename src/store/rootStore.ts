@@ -1,11 +1,9 @@
-const rootStore = {};
+import globalStore from "./GlobalStore";
+import welcomeStore from "../router/Welcome/WelcomeStore";
 
-const getRootStore = () => {
-  return rootStore;
+const rootStore = {
+  globalStore: globalStore,
+  welcomeStore: welcomeStore
 };
 
-const rootStoreManager = {
-  getRootStore
-};
-
-export default rootStoreManager;
+export default rootStore;
