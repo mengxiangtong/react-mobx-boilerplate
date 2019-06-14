@@ -1,5 +1,7 @@
+import baseApi from "api/base.api";
+
 const Api = {
-  // todo
+  base: baseApi
 };
 
 export default Api;

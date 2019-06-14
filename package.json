@@ -12,6 +12,7 @@
     "lint": "yarn prettier && yarn tslint"
   },
   "dependencies": {
+    "@loadable/component": "^5.10.1",
     "antd": "^3.19.2",
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",

@@ -1,9 +1,9 @@
 import * as React from "react";
 import { inject, observer } from "mobx-react";
 import { WelcomeStore } from "./WelcomeStore";
+import registerTitle from "enhancer/registerTitle";
 
-import "./Welcome.less";
-
+@registerTitle("欢迎")
 @inject("welcomeStore")
 @observer
 export default class Welcome extends React.Component<
@@ -12,6 +12,10 @@ export default class Welcome extends React.Component<
   },
   any
 > {
+  componentDidMount(): void {
+    console.log(this.props);
+  }
+
   render() {
     const { welcomeStore } = this.props;
 
