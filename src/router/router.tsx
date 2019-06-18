@@ -1,34 +1,42 @@
 import * as React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
-import wrapperComponent from "enhancer/wrapperComponent";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import loadable from "enhancer/loadable";
 
 import BasicLayout from "layout/BasicLayout/BasicLayout";
 
-const routerPrefix = "";
+const routerPrefix = "/";
 
 export const routerOutline = {
-  WelcomePage: `${routerPrefix}/welcome`
+  WelcomePage: `${routerPrefix}welcome`
 };
 
 const Welcome = loadable(() => import("router/Welcome/WelCome"));
 
 const router = (
   <BrowserRouter>
-    <div>
-      <Route
-        component={wrapperComponent(
-          BasicLayout,
-          <React.Fragment>
+    <Switch>
+      {/* 空路由页面 */}
+      <Route exact path={routerPrefix} />
+
+      {/* 独立页面 */}
+      {/*<Route path={routerOutline.WelcomePage} component={Welcome}/>*/}
+
+      {/* 携带基础布局的页面 */}
+      <Route>
+        <BasicLayout>
+          <Switch>
+            <Route exact path={routerOutline.WelcomePage} component={Welcome} />
+
+            {/* 个人中心模块 */}
             <Route
-              strict
-              path={routerOutline.WelcomePage}
-              component={Welcome}
+              exact
+              path="/user"
+              component={() => <React.Fragment>{/* Routes */}</React.Fragment>}
             />
-          </React.Fragment>
-        )}
-      />
-    </div>
+          </Switch>
+        </BasicLayout>
+      </Route>
+    </Switch>
   </BrowserRouter>
 );
 
