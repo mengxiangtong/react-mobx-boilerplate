@@ -1,4 +1,4 @@
-import { observable, action } from "mobx";
+import { observable } from "mobx";
 import BasicStore from "../../store/BasicStore";
 
 export class WelcomeStoreInitStatus {
@@ -8,7 +8,6 @@ export class WelcomeStoreInitStatus {
 export class WelcomeStore extends BasicStore<WelcomeStoreInitStatus> {
   @observable status = new WelcomeStoreInitStatus();
 
-  @action
   changeName() {
     this.setStatus({ name: "三十文" });
   }

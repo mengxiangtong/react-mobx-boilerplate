@@ -8,7 +8,7 @@
     "analyze": "./node_modules/.bin/webpack --config ./config/webpack.analyze.js",
     "prettier": "prettier -l --write 'src/**/*.{ts,tsx,less,css}'",
     "prettier-check": "prettier -l 'src/**/*.{ts,tsx,less,css}'",
-    "tslint": "tslint \"./src/**/*.{ts,tsx}\"",
+    "tslint": "tslint \"./src/**/*.{ts,tsx}\" && tsc --build tsconfig.json && rm -rf .tmp",
     "lint": "yarn prettier && yarn tslint"
   },
   "dependencies": {

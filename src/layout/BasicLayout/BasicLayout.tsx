@@ -1,13 +1,14 @@
 import * as React from "react";
 import { Layout } from "antd";
-import { BasicLayoutState } from "declare/LayoutInterface";
 
 import BasicSideMenu from "../BasicSideMenu/BasicSideMenu";
 import BasicHeader from "../BasicHeader/BasicHeader";
 
 export default class BasicLayout extends React.Component<
   any,
-  BasicLayoutState
+  {
+    collapsed: boolean;
+  }
 > {
   constructor(props) {
     super(props);

@@ -5,12 +5,7 @@ export default class BasicStore<T> {
 
   @action
   setStatus(object: Partial<T>) {
-    const properties = Object.getOwnPropertyNames(object);
-    properties.forEach(property => {
-      if (this.status.hasOwnProperty(property)) {
-        this.status[property] = object[property];
-      }
-    });
+    this.status = Object.assign({}, this.status, object);
   }
 
   @action

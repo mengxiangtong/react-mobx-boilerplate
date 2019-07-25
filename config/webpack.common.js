@@ -66,14 +66,20 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'postcss-loader']
       },
       {
-        test: /\.(gif|jpg|png)$/,
+        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        loader: 'url-loader',
         exclude: /node_modules/,
-        use: ['url-loader']
+        options: {
+          name: 'static/media/[name].[hash:8].[ext]'
+        }
       },
       {
         test: /\.(woff|woff2|eot|ttf|svg)$/,
+        loader: 'file-loader',
         exclude: /node_modules/,
-        use: ['file-loader']
+        options: {
+          name: 'static/media/[name].[hash:8].[ext]'
+        }
       }
     ]
   },

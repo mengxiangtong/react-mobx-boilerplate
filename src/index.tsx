@@ -4,11 +4,13 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Provider } from "mobx-react";
 import router from "./router/router";
-import rootStore from "./store/rootStore";
+import requestUtil from "./util/requestUtil";
 
 import "./style/global.less";
 
+requestUtil.configAxiosInstance();
+
 ReactDOM.render(
-  <Provider {...rootStore}>{router}</Provider>,
+  <Provider>{router}</Provider>,
   document.querySelector("#main-view-wrapper")
 );

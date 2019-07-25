@@ -1,69 +1,33 @@
-import axios from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
 
-const axiosInstance = axios.create({
-  baseURL: "/api",
-  timeout: 2000
-});
+const requestUtil = {
+  configAxiosInstance: () => {
+    axios.defaults.baseURL = "";
+    axios.defaults.timeout = 2000;
+    axios.defaults.auth = {
+      username: window.localStorage.getItem("tk"),
+      password: ""
+    };
+    axios.interceptors.response.use(
+      (response: AxiosResponse) => {
+        return response;
+      },
+      (error: AxiosError) => {
+        return Promise.reject(error);
+      }
+    );
+  },
+  updateAxiosToken: (token: string): void => {
+    if (token) {
+      window.localStorage.setItem("tk", token);
+    }
 
-const baseURL = "/api";
-
-/**
- * get 请求
- * @param url 请求资源地址
- * @param params 请求参数
- */
-export function pget(url, params = {}) {
-  url = baseURL + url;
-  try {
-    return axiosInstance
-      .get(url, params)
-      .then(response => {
-        return response.data;
-      })
-      .catch(error => {
-        throw error;
-      });
-  } catch (err) {
-    console.error(err);
+    axios.defaults.auth = {
+      username: token,
+      password: ""
+    };
   }
-}
+};
 
-/**
- * post 请求
- * @param url 请求资源地址
- * @param params 请求参数
- */
-export function ppost(url, params = {}) {
-  url = baseURL + url;
-  try {
-    return axios
-      .post(url, params)
-      .then(response => {
-        return response.data;
-      })
-      .catch(error => {
-        throw error;
-      });
-  } catch (err) {
-    console.error(err);
-  }
-}
-
-/**
- * 多个请求并发
- * @param requests
- */
-export function asyncAll(requests = []) {
-  try {
-    return axios
-      .all(requests)
-      .then(resultArr => {
-        return resultArr;
-      })
-      .catch(error => {
-        throw error;
-      });
-  } catch (err) {
-    console.error(err);
-  }
-}
+// @ts-ignore
+export default requestUtil;
