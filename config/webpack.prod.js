@@ -1,10 +1,14 @@
 const merge = require('webpack-merge')
 const common = require('./webpack.common')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = merge(common, {
   mode: 'production',
-  // devtool: 'source-map',
+  devtool: 'cheap-module-source-map',
   output: {
     publicPath: '/'
-  }
+  },
+  plugins: [
+    new CleanWebpackPlugin(),
+  ],
 })

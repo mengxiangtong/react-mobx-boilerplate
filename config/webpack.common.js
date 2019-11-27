@@ -1,7 +1,6 @@
 const path = require('path')
 const process = require('process')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
 const isDev = process.env.npm_lifecycle_event !== 'prod'
@@ -88,6 +87,5 @@ module.exports = {
       template: 'index.html',
       inject: true
     }),
-    new CleanWebpackPlugin()
   ]
 }

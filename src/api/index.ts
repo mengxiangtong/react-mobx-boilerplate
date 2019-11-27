@@ -1,4 +1,4 @@
-import userApi from "api/userApi";
+import userApi from "api/user.api";
 
 const Api = {
   user: userApi

@@ -2,14 +2,14 @@
   "name": "react-mobx-boilerplate",
   "license": "ISC",
   "scripts": {
-    "dev": "./node_modules/.bin/webpack-dev-server --config ./config/webpack.dev.js",
-    "local": "./node_modules/.bin/webpack-dev-server --config ./config/webpack.local.js",
-    "prod": "./node_modules/.bin/webpack --config ./config/webpack.prod.js",
-    "analyze": "./node_modules/.bin/webpack --config ./config/webpack.analyze.js",
+    "dev": "webpack-dev-server --config ./config/webpack.dev.js",
+    "local": "webpack-dev-server --config ./config/webpack.local.js",
+    "prod": "webpack --config ./config/webpack.prod.js",
+    "analyze": "webpack --config ./config/webpack.analyze.js",
     "prettier": "prettier -l --write 'src/**/*.{ts,tsx,less,css}'",
     "prettier-check": "prettier -l 'src/**/*.{ts,tsx,less,css}'",
-    "tslint": "tslint \"./src/**/*.{ts,tsx}\" && tsc --build tsconfig.json && rm -rf .tmp",
-    "lint": "yarn prettier && yarn tslint"
+    "tslint": "tslint \"./src/**/*.{ts,tsx}\" && tsc --build tsconfig.json --noEmit",
+    "lint": "yarn prettier-check && yarn tslint"
   },
   "dependencies": {
     "@loadable/component": "^5.10.1",

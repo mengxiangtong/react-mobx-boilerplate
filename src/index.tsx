@@ -1,4 +1,5 @@
-import "./external";
+import "normalize.css";
+import "babel-polyfill";
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
